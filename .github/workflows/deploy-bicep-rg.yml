@@ -1,6 +1,10 @@
 name: "deploy-bicep-rg - Deploy Resource Group with Bicep"
 
-on: [push]
+on: 
+  push:
+    paths:
+      - .github/workflows/deploy-bicep-rg.yml
+      - bicep/resource-group.bicep
 
 permissions:
   id-token: write

@@ -1,5 +1,8 @@
 name: test001 - hello world
-on: [push]
+on:
+  push:
+    paths:
+      - .github/workflows/test001.yml
 jobs:
   build:
     runs-on: ubuntu-latest
