@@ -26,6 +26,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           scope: subscription
+          region: uksouth
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./bicep/resource-group.bicep
           failOnStdErr: false
