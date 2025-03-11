@@ -138,7 +138,8 @@ jobs:
               
   terraform-apply:
     name: "Terraform Apply"
-    if: github.ref == 'refs/heads/main' && needs.terraform-plan.outputs.tfplanExitCode == '2'
+    # if: github.ref == 'refs/heads/main' && needs.terraform-plan.outputs.tfplanExitCode == '2'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: Production
     needs: [terraform-plan]
