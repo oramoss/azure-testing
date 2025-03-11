@@ -132,8 +132,8 @@ jobs:
                 body: body
             })
     outputs:
-      #tfplanExitCode: ${{ steps.tf-plan.outputs.exitcode }}
-      tfplanExitCode: ${{ env.exitcode }}
+      tfplanExitCode: ${{ steps.tf-plan.outputs.exitcode }}
+      #tfplanExitCode: ${{ env.exitcode }}
               
   terraform-apply:
     name: "Terraform Apply"
