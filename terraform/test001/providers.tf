@@ -21,10 +21,6 @@ terraform {
     }
   }
   backend "azurerm" {
-#    resource_group_name  = "AP-UKS-css-rg"
-#    storage_account_name = "apukscss1sa"
-#    container_name       = "azure-testing"
-#    key                  = "terraform.tfstate"
     key      = "terraform.tfstate"
     use_oidc = true
   }
