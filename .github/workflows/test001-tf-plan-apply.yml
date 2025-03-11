@@ -72,7 +72,6 @@ jobs:
         run: |
           terraform plan -detailed-exitcode -no-color -out tfplan
           exitcode=$?
-          echo "Terraform exit code: $exitcode"
           echo "exitcode=$exitcode" >> $GITHUB_ENV
           # if [ "$exitcode" -eq 1 ]; then
           #   echo "Terraform Plan Failed!"
@@ -173,6 +172,4 @@ jobs:
       # Terraform Apply
       - name: Terraform Apply
         run: |
-          pwd
-          ls
           terraform apply -auto-approve tfplan
