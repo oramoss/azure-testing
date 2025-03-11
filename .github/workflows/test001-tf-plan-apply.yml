@@ -32,8 +32,6 @@ jobs:
     env:
       #this is needed since we are running terraform with read-only permissions
       ARM_SKIP_PROVIDER_REGISTRATION: true
-    outputs:
-      tfplanExitCode: ${{ steps.tf-plan.outputs.exitcode }}
 
     steps:
       # Checkout the repository to the GitHub Actions runner
@@ -74,8 +72,8 @@ jobs:
         run: |
           terraform plan -detailed-exitcode -no-color -out tfplan
           exitcode=$?
-          echo "exitcode=$exitcode"
-          echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
+          echo "Terraform exit code: $exitcode"
+          echo "exitcode=$exitcode" >> $GITHUB_ENV
           if [ "$exitcode" -eq 1 ]; then
             echo "Terraform Plan Failed!"
             exit 1
@@ -134,7 +132,10 @@ jobs:
                 repo: context.repo.repo,
                 body: body
             })
-
+    outputs:
+      #tfplanExitCode: ${{ steps.tf-plan.outputs.exitcode }}
+      tfplanExitCode: ${{ env.exitcode }}
+              
   terraform-apply:
     name: "Terraform Apply"
     if: github.ref == 'refs/heads/main' && needs.terraform-plan.outputs.tfplanExitCode == '2'
