@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - .github/workflows/deploy-bicep-rg.yml
-      - bicep/resource-group.bicep
+      - bicep/test002/resource-group.bicep
 
 permissions:
   id-token: write
@@ -32,5 +32,5 @@ jobs:
           scope: subscription
           region: uksouth
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          template: ./bicep/resource-group.bicep
+          template: ./bicep/test002/resource-group.bicep
           failOnStdErr: false

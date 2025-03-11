@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - .github/workflows/tf*.yml
-      - terraform/**/*.tf
+      - terraform/test001/*.tf
 
 permissions:
   security-events: write # Needed to upload-sarif
