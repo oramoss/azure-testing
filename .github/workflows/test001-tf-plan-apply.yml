@@ -141,6 +141,9 @@ jobs:
     # if: github.ref == 'refs/heads/main' && needs.terraform-plan.outputs.tfplanExitCode == '2'
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform/test001
     environment: Production
     needs: [terraform-plan]
 
