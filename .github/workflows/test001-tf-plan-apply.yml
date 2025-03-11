@@ -169,10 +169,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan
+          path: ./tfplan
 
       # Terraform Apply
       - name: Terraform Apply
         run: |
           pwd
           ls
-          terraform apply -auto-approve ./tfplan/tfplan
+          terraform apply -auto-approve tfplan/tfplan
