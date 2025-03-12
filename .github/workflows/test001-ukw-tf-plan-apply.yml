@@ -2,11 +2,9 @@ name: "Terraform Plan/Apply"
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    paths:
+      - .github/workflows/test001-ukw-tf-plan-apply.yml
+      - terraform/test001/*.tf*
 
 #Special permissions required for OIDC authentication
 permissions:
@@ -71,7 +69,7 @@ jobs:
         run: |
           export exitcode=0
           pwd
-          terraform plan -detailed-exitcode -no-color -var-file="./config/uks/ap-management/test001.tfvars" -var-file="./global.tfvars" -out tfplan|| export exitcode=$?
+          terraform plan -detailed-exitcode -no-color -var-file="./config/ukw/ap-management/test001.tfvars" -var-file="./global.tfvars" -out tfplan|| export exitcode=$?
           echo "Terraform plan exit code: $exitcode"
           echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
           echo "exitcode=$exitcode" >> $GITHUB_ENV
