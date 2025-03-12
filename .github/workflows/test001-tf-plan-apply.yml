@@ -72,17 +72,18 @@ jobs:
         run: |
           terraform plan -detailed-exitcode -no-color -out tfplan
           exitcode=$?
+          echo "Terraform plan exit code: $exitcode"
           echo "exitcode=$exitcode" >> $GITHUB_ENV
-          # if [ "$exitcode" -eq 1 ]; then
-          #   echo "Terraform Plan Failed!"
-          #   exit 1
-          # elif [ "$exitcode" -eq 2 ]; then
-          #   echo "Terraform Plan found changes."
-          #   exit 0
-          # else
-          #   echo "Terraform Plan found no changes."
-          #   exit 0
-          # fi
+          if [ "$exitcode" -eq 1 ]; then
+            echo "Terraform Plan Failed!" >&2
+            exit 1
+          elif [ "$exitcode" -eq 2 ]; then
+            echo "Terraform Plan found changes."
+            exit 0
+          else
+            echo "Terraform Plan found no changes."
+            exit 0
+          fi
 
       # Save plan to artifacts
       - name: Publish Terraform Plan
