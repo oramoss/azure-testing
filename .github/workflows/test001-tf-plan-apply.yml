@@ -56,8 +56,7 @@ jobs:
       # Checks that all Terraform configuration files adhere to a canonical format
       # Will fail the build if not
       - name: Terraform Format
-        run: |
-          terraform fmt -check
+        run: terraform fmt -check
 
       # Validates all Terraform configuration files
       # Will fail the build if not
@@ -71,6 +70,7 @@ jobs:
         id: tf-plan
         continue-on-error: true
         run: |
+          echo "Terraform Plan..."
           terraform plan -detailed-exitcode -no-color -out tfplan
           exitcode=$?
           echo "Terraform plan exit code: $exitcode"
