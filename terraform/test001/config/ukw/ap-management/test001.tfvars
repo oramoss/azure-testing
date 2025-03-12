@@ -1,5 +1,5 @@
 environment = "platform"
-location    = "uksouth"
+location    = "ukwest"
 
 environment_tags = {
   Business-unit = "AP"
