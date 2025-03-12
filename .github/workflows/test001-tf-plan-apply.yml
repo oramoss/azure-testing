@@ -71,7 +71,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "Terraform Plan..."
-          terraform plan -detailed-exitcode -no-color -out tfplan
+          terraform plan -detailed-exitcode -no-color -out=tfplan
           echo "Terraform Plan executed."
           exitcode=$?
           echo "Terraform Plan exitcode variable set."
