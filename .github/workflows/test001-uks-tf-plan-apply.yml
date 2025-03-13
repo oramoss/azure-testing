@@ -21,7 +21,7 @@ env:
 
 jobs:
   call-tf-plan-apply:
-    uses: terraform/test001/.github/workflows/tf-plan-apply.yml
+    uses: .github/workflows/tf-plan-apply.yml
     with:
       tfvars-file: test001
       location-abbreviated: uks
