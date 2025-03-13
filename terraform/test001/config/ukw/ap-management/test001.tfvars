@@ -2,7 +2,7 @@ environment = "platform"
 location    = "ukwest"
 
 environment_tags = {
-  Business-unit = "AP"
+  Environment = "Production"
 }
 
 resource_groups = [
