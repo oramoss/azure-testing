@@ -29,4 +29,3 @@ variable "subscription_id" {
   description = "ID of the target Subscription"
   type        = string
 }
-
