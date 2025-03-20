@@ -2,6 +2,7 @@ locals {
   location_abbreviated_map = {
     uksouth = "uks"
     ukwest  = "ukw"
+    ukwest  = "neu"
   }
 
   default_audience_name = "api://AzureADTokenExchange"
