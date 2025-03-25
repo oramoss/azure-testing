@@ -2,6 +2,8 @@ name: "Terraform Plan/Apply"
 
 on:
   push:
+    branches:
+      - 'feature/*'
     paths:
       - .github/workflows/test001-uks-tf-plan-apply.yml
       - terraform/test001/*.tf*
