@@ -3,7 +3,7 @@ locals {
     uksouth     = "uks"
     ukwest      = "ukw"
     northeurope = "neu"
-    #    westeurope  = "weu"
+    westeurope  = "weu"
   }
 
   default_audience_name = "api://AzureADTokenExchange"
