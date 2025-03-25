@@ -3,7 +3,7 @@ name: "Terraform Plan/Apply"
 on:
   pull_request:
     branches:
-      - 'feature/*'
+      - main
     paths:
       - .github/workflows/test001-uks-tf-plan-apply.yml
       - terraform/test001/*.tf*
